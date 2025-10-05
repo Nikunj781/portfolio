@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikunj Verma - Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #364864;
+            --text-color: #f2f2f2;
+            --accent-color: #64b5f6;
+            --card-bg-color: #2a2a2a;
+            --font-serif: Georgia, 'Times New Roman', Times, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--card-bg-color);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero-section {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .hero-image-wrapper {
+            margin: 0 auto 2.5rem;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero-content .description {
+            margin-top: 1.5rem;
+            color: #ccc;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding: 6rem 0;
+            border-top: 1px solid var(--card-bg-color);
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            background-color: var(--card-bg-color);
+            border-radius: 8px;
+            background-image: url('https://via.placeholder.com/300x300/a0a0a0/FFFFFF?text=Profile+Pic');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-content h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content h2 span {
+            color: var(--accent-color);
+        }
+
+        .accounts-section,
+        .skills-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--card-bg-color);
+            text-align: center;
+        }
+
+        .accounts-section h2,
+        .skills-section h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .accounts-links,
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .accounts-links a,
+        .skill-tag {
+            width: 60px;
+            height: 60px;
+            background-color: var(--card-bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, background-color 0.2s;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+        }
+
+        .accounts-links a:hover,
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            background-color: #3b3b3b;
+        }
+
+        .skill-tag {
+            width: auto;
+            height: auto;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-size: 1.2rem;
+        }
+
+
+        .projects-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .projects-section h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .projects-section .subheading {
+            color: #aaa;
+            margin-bottom: 4rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card .card-heading {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+
+        .project-card .project-image {
+            width: 100%;
+            height: 200px;
+
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-card.wide {
+            grid-column: span 2;
+            background-color: var(--accent-color) !important;
+            color: var(--bg-color) !important;
+        }
+
+        .project-card.wide .card-heading {
+            color: var(--bg-color) !important;
+        }
+
+
+        .contact-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--card-bg-color);
+        }
+
+        .contact-section h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: var(--card-bg-color);
+            border: 1px solid #444;
+            color: var(--text-color);
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+        }
+
+        .contact-form textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .contact-form .submit-btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .contact-form .submit-btn:hover {
+            background-color: #55a3e8;
+        }
+
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 0;
+            }
+
+            .hero-image-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-section .about-content {
+                order: 1;
+            }
+
+            .about-section .profile-pic {
+                order: 2;
+                margin-top: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card.wide {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo">Portfolio</div>
+        <nav class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">PROJECTS</a>
+            <a href="#">BLOG</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="hero-image-wrapper">
+                <img src="./Profile.jpeg" alt="A profile picture of Nikunj Verma">
+            </div>
+            <div class="hero-content">
+                <h1>About Nikunj Verma</h1>
+
+                <p class="description">
+                    I'm Nikunj Verma, a creative technologist who loves bringing ideas to life through code. I
+                    specialize in building user-friendly and visually appealing web projects. My goal is to use my
+                    passion for technology to solve real-world problems and create engaging experiences.
+                </p>
+                <a href="#" class="btn">Let's Connect</a>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <h2>About <span>Me</span></h2>
+                <p>Hello! I'm Nikunj, a visual storyteller and creative professional with a passion for blending art and
+                    technology. My work spans from digital art and photography to product and architectural design. I
+                    believe in the power of visuals to communicate emotion and narrative, and I'm dedicated to creating
+                    impactful and memorable experiences.
+                </p>
+                <p>
+                    This portfolio is a showcase of my journey, reflecting my dedication to craftsmanship and my
+                    commitment to pushing creative boundaries. I'm always looking for new challenges and collaborations.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skills-list">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS3</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Java</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Git</div>
+            </div>
+        </section>
+
+        <section class="accounts-section">
+            <h2>My Accounts</h2>
+            <div class="accounts-links">
+                <a href="https://github.com/Nikunj781" class="social-link">Github</a>
+                <a href="https://www.linkedin.com/in/nikunj-verma-b4b41836a" class="social-link">LinkedIn</a>
+                <a href="https://x.com/NKV797" class="social-link">Twitter</a>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>My Projects</h2>
+            <p class="subheading">I mostly work with HTML, CSS, JavaScript, Java and Node</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="card-heading">Calculator</div>
+                    <img class="project-image" src="CALCULATOR.png" alt="A screenshot of the calculator project">
+                    <p>A functional calculator with a sleek, minimalist design.</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-heading">To do List</div>
+                    <img class="project-image" src="CARGALLERY.png" alt="A screenshot of the to-do list project">
+                    <p>An interactive to-do list for tracking daily tasks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Message"></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
